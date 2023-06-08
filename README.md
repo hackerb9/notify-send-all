@@ -6,7 +6,16 @@ Messages are sent asynchronously, not blocking, but --action can still be used t
 
 ## Installation
 
-It's just a shell script. Download [notify-send-all](https://raw.github.com/hackerb9/notify-send-all/notify-send-all), make it executable, and put it in your path. 
+It's just a shell script. Download [notify-send-all](https://raw.githubusercontent.com/hackerb9/notify-send-all/main/notify-send-all), make it executable, and put it in your path. 
+
+<details>
+ 
+ ```
+ wget raw.githubusercontent.com/hackerb9/notify-send-all/main/notify-send-all
+ chmod +x notify-send-all
+ sudo mv notify-send-all /usr/local/bin/
+ ```
+</details>
 
 ## Requirements
 
