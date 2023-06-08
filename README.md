@@ -1,8 +1,8 @@
 # notify-send-all
 Send a pop-up notification message to all users logged into a machine. 
-Similar to the 'wall' command, but for graphical logins (X & Wayland).
+Similar to the `wall` command, but for graphical logins (X & Wayland).
  
-Messages are sent asynchronously, not blocking, but --action can still be used to wait for a response from each user. Responses are prefixed with the username and a TAB.
+Messages are sent asynchronously, not blocking, but `--action` can still be used to wait for a response from each user. Responses are prefixed with the username and a TAB.
 
 ## Installation
 
@@ -35,13 +35,14 @@ Users must be logged in graphically (X or Wayland) with dbus and a notification 
                     --action=run="Run away!" \\
                     --action=hide="Hide!" \\
                     "Warning: Nuclear launch imminent"
-
-#### Example output
+<details><summary>Click to see example output</summary>
+ 
     andy		run
     circus		hide
     hackerb9	run
+</details>
 
- ## Bugs
+## Bugs
  
 * `-?`, `--help` only works correctly if it is the first argument.
   
