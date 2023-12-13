@@ -1,5 +1,5 @@
 #!/bin/bash
-# notify-send-all, notify-send-to
+# notify-send-all, notify-send-to, notify-send-others
 #
 #   Send a pop-up message to all users logged into a machine, asynchronously. 
 #   Similar to the `wall` command, but for graphical logins (X & Wayland).
@@ -12,27 +12,28 @@ PATH=/usr/bin:/bin
 
 usage() {
     cmd=$(basename "$0")
-    if [[ "$cmd" == "notify-send-all" ]]; then
-	usage-notify-send-all
-    elif [[ "$cmd" == notify-send-to ]]; then
+    if [[ "$cmd" == notify-send-to ]]; then
 	usage-notify-send-to
+    else
+	usage-notify-send-all
     fi
     exit
 }
 
 usage-notify-send-all() {
+    cmd=$(basename "$0")
     cat <<EOF
-Usage: notify-send-all [options] <message> 
+Usage: $cmd [options] <message> 
    Send a pop-up message to all users logged into a machine. 
    Similar to the 'wall' command, but for graphical logins (X & Wayland).
 
 Simple usage:
 
-    notify-send-all "My hovercraft is full of eels"
+    $cmd "My hovercraft is full of eels"
 
 More complex example:
 
-    notify-send-all --urgency=critical \\
+    $cmd --urgency=critical \\
                     --action=run="Run away!" \\
                     --action=hide="Hide!" \\
                     "Warning: Nuclear launch imminent"
@@ -85,9 +86,11 @@ send-to() {
 }
 
 
+skipuser=
 send-all() {
     for name in $(who | cut -f1 -d" " | sort -u)
     do
+	[ -n "$skipuser" -a "$name" = "$skipuser" ] && continue
 	send-to "$name" "$@" &
     done
     wait
@@ -120,6 +123,9 @@ main() {
 	notify-send-to)
 	    send-to "$@"
 	    ;;
+	notify-send-others)
+	    skipuser="${USER:?}"
+	    ;&
 	*) send-all "$@"
 	   ;;
     esac
