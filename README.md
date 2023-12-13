@@ -57,6 +57,8 @@ Users must be logged in graphically (X or Wayland) with dbus and a notification 
   will not show up at all in the graphical session.
 
  
- ## Bonus command: notify-send-to
- 
-If you make a symlink called "notify-send-to", you can use it to send a pop up notification to a single user. 
+## Bonus commands
+### notify-send-to
+If you make a symlink called `notify-send-to`, you can use it to send a pop up notification to a single user. 
+### notify-send-others
+If you make a symlink called `notify-send-others`, you can use it to send a pop up notification to all users but yourself.
