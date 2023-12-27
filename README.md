@@ -6,7 +6,7 @@ Messages are sent asynchronously, not blocking, but `--action` can still be used
 
 ## Installation
 
-It's just a shell script. Download [notify-send-all](https://raw.githubusercontent.com/hackerb9/notify-send-all/main/notify-send-all), make it executable, and put it in your path. 
+It's just a shell script. Download [notify-send-all](https://raw.githubusercontent.com/hackerb9/notify-send-all/main/notify-send-all), make it executable, and put it in your path. Or clone the repository, and add the working copy to your path. 
 
 <details>
  
@@ -57,6 +57,8 @@ Users must be logged in graphically (X or Wayland) with dbus and a notification 
   will not show up at all in the graphical session.
 
  
- ## Bonus command: notify-send-to
- 
-If you make a symlink called "notify-send-to", you can use it to send a pop up notification to a single user. 
+## Bonus commands
+### notify-send-to
+If you make a symlink called `notify-send-to`, you can use it to send a pop up notification to a single user. 
+### notify-send-others
+If you make a symlink called `notify-send-others`, you can use it to send a pop up notification to all users but yourself.
