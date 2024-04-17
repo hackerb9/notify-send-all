@@ -124,7 +124,7 @@ main() {
 	    send-to "$@"
 	    ;;
 	notify-send-others)
-	    skipuser="${USER:?}"
+	    skipuser="${USER:-${USERNAME:-${LOGNAME:-$(whoami)}}}"
 	    ;&
 	*) send-all "$@"
 	   ;;
